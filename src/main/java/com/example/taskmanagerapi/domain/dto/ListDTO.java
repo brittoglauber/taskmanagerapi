@@ -8,5 +8,4 @@ import java.util.List;
 public class ListDTO {
     private Long id;
     private String name;
-    private List<ItemDTO> items;
 }

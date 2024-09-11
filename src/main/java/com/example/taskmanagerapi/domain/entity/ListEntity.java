@@ -4,7 +4,10 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "task_lists")
@@ -17,9 +20,6 @@ public class ListEntity {
 
     @Column(nullable = false)
     private String name;
-
-    @OneToMany(mappedBy = "list", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ItemEntity> items;
 
     public ListEntity(String name) {
         this.name = name;

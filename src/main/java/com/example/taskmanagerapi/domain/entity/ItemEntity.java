@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 @Table(name = "items")
 @Data
@@ -25,13 +28,8 @@ public class ItemEntity {
     @Column(nullable = false)
     private Boolean isPriority = false;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "list_id")
-    private ListEntity list;
-
-    public ItemEntity(String title, String description, ListEntity list) {
+    public ItemEntity(String title, String description) {
         this.title = title;
         this.description = description;
-        this.list = list;
     }
 }
